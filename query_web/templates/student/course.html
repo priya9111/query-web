@@ -1,0 +1,73 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Query Web</title>
+  </head>
+  <body style="background-color: rgb(154, 201, 196)">
+    <header class="position-sticky">
+      {% include 'student/navbar.html' %}
+
+    </header>
+    <div class="w3-sidebar w3- w3-bar-block"
+      style="width:18%;background-color: #1e547b">
+      <div class="text-white" style="padding-top: 20%;padding-left: 10%;">
+        <h3 class="w3-bar-item text-white"
+          style="font-family: Georgia, 'Times New Roman', Times, serif;">Queries</h3>
+        <a href="/student/upload_query/" class="w3-bar-item w3-button">Upload
+          Queries</a>
+        <a href="#" class="w3-bar-item w3-button">Solved</a>
+        <a href="#" class="w3-bar-item w3-button">Unsolved</a>
+
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <div style="margin-left:18%;margin-top: 10px;">
+
+      <div class="container">
+        
+        <div class="row overflow-auto">
+          <div class="col-md-12">
+            <div class="card m-0 border-0" style="height: 660px; background-color: rgb(154, 201, 196)">
+              {%for i in upl%}
+              <div class="card m-1">
+
+                <div class="card-body data-bs">
+                  <div class="col d-inline-block">
+                    <h3 class="card-title mt-0">{{i.name}}</h3>
+                    <p class="card-text ">{{i.query}}</p>
+                  </div>
+                  <div class="col float-end align-self-center">
+                    <a href="/student/solution/{{i.id}}" class="btn btn-success float-end">Solution</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+
+  </body>
+</html>

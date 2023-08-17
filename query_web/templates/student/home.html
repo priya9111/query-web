@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Query Web</title>
+  </head>
+  <body style="background-color: rgb(154, 201, 196)">
+    <header>
+        {% include 'student/navbar.html' %}
+        
+    </header>
+    
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <section class="p-4" style="margin-bottom: 60px;">
+      <div class="d-flex justify-content-center" style="height: 12rem;">
+        <img src="/media/student1.png" alt="student.img">
+      </div> 
+
+    <div card ="container px-5" style="padding-right: 10rem; ">        
+        <div class="row px-5" >
+          <div class="text-white ">
+            <h1 style="color:#001C30;margin-bottom: 20px;font-weight: 600; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Courses</h1>
+          </div>
+          {%for t in cor %}
+         
+          <div class="col-sm-4" style="margin-left: 0px ;margin-right:0px; width: 21rem;">
+            <a href="/student/course" style="text-decoration: none;">
+            <div class="card " style="margin-bottom: 15px;width:20rem;height: 10rem;">
+              
+              <div class="card-body  rounded-3" style="background-color: #001C30;color: azure;">
+                 <div>
+                  <div class="py-2">
+                    <div class="col-12 col-lg-8">
+                      <h5 class="card-title d-inline">{{t.course}}</h5>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                      </svg>
+                    </div>
+                  </div>
+                   <p class="card-text">{{t.name}}</p>
+                   <p class="card-text">Approved by Course Instructor</p>
+                 </div>
+                 </div>
+             
+            </div>
+          </a>
+            </div>
+          
+            {% endfor %} 
+           
+          </div>
+            </div>
+        </div>
+      
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <footer style="position:relative;">
+      {% include 'student/footer.html' %}
+    </footer>
+  </body>
+</html>
